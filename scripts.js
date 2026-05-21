@@ -1,12 +1,12 @@
 const boton = document.querySelector("button");
 
 boton.addEventListener("click", () => {
-    alert("Gracias por contactarnos");
+  alert("Gracias por contactarnos");
 });
 
 const menuToggle = document.getElementById("menu-toggle");
 const nav = document.getElementById("nav");
 
 menuToggle.addEventListener("click", () => {
-    nav.classList.toggle("active");
+  nav.classList.toggle("active");
 });
