@@ -24,13 +24,9 @@ header {
   left: 0;
 
   width: 100%;
-
-  padding: 20px 40px;
-
+  padding: 20px 25px;
   background: rgba(7, 27, 59, 0.45);
-
   backdrop-filter: blur(10px);
-
   z-index: 1000;
 }
 
@@ -48,9 +44,23 @@ header {
 /* LOGO */
 
 .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
   color: rgb(143, 168, 238);
   font-size: 28px;
   font-weight: bold;
+  text-decoration: none;
+}
+
+.logo img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: transparent;
+  padding: 0;
+  border: none;
 }
 
 /* NAV */
@@ -189,6 +199,7 @@ nav a:hover {
 .btn-hero {
   background: #d4af37;
   color: #071b3b;
+  text-decoration: none;
 
   border: none;
   padding: 15px 35px;
@@ -421,7 +432,7 @@ nav a:hover {
 
 .carta h3,
 .carta p,
-.carta button{
+.carta a{
 
     position:relative;
 
@@ -476,20 +487,24 @@ nav a:hover {
 
 /* BOTON */
 
-.carta button {
-  background: #d4af37;
+.carta a {
+  display: block;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
 
+  background: #d4af37;
   color: #071b3b;
   border: none;
   padding: 12px 25px;
   border-radius: 10px;
   font-weight: bold;
   cursor: pointer;
-  width: 100%;
   transition: 0.3s;
+  box-sizing: border-box;
 }
 
-.carta button:hover {
+.carta a:hover {
   background: white;
   transform: scale(1.03);
 }

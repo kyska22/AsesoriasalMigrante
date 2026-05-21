@@ -6,9 +6,16 @@ boton.addEventListener("click", () => {
 
 const menuToggle = document.getElementById("menu-toggle");
 const nav = document.getElementById("nav");
+const navLinks = document.querySelectorAll("#nav a");
 
 menuToggle.addEventListener("click", () => {
   nav.classList.toggle("active");
+});
+
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    nav.classList.remove("active");
+  });
 });
 
 const formulario = document.getElementById("formulario-contacto");
