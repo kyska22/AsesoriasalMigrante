@@ -4,17 +4,56 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Asesorias al Migrante</title>
+    <!-- SEO: meta description, canonical, Open Graph, Twitter - replace example.com with your domain -->
+    <meta
+      name="description"
+      content="Asesorías al Migrante — Abogados especialistas en derecho migratorio. Consultas presenciales y online en Mar del Plata."
+    />
+    <link rel="canonical" href="https://asesoriasal-migrante.vercel.app/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Asesorías al Migrante" />
+    <meta
+      property="og:description"
+      content="Abogados especialistas en derecho migratorio. Consultas presenciales y online."
+    />
+    <meta
+      property="og:image"
+      content="https://asesoriasal-migrante.vercel.app/media/img/hero.jpeg"
+    />
+    <meta
+      property="og:url"
+      content="https://asesoriasal-migrante.vercel.app/"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#d4af37" />
     <!-- FAVICON: verifica en media/img/favicon.ico -->
     <link rel="icon" href="media/img/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="styles.css" />
     <script src="js/script.js"></script>
+    <!-- Structured Data: update the URL, telephone and address to match your business -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Asesorías al Migrante",
+        "url": "https://asesoriasal-migrante.vercel.app/",
+        "logo": "https://asesoriasal-migrante.vercel.app/media/img/logo.png",
+        "telephone": "+54 223 5173127",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Mar del Plata",
+          "addressCountry": "AR"
+        }
+      }
+    </script>
   </head>
 
   <body>
     <header>
       <div class="container">
         <a href="#" class="logo">
-          <!-- <img src="/media/img/logo.png" alt="Logo Asesorías al Migrante" /> -->
+          <!-- Uncomment the img below if you want the logo visible; ensure logo.png has transparent background -->
+          <!-- <img src="/media/img/logo.png" alt="Logo Asesorías al Migrante" width="42" height="42" loading="lazy" decoding="async"/> -->
           <span>Asesorías al Migrante</span>
         </a>
 
@@ -45,7 +84,12 @@
         <!-- IMAGEN -->
 
         <div class="somos-img">
-          <img src="media/img/abogado.png" alt="Equipo legal migratorio" />
+          <img
+            src="/media/img/abogado.png"
+            alt="Equipo legal migratorio"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
 
         <!-- TEXTO -->
@@ -139,43 +183,54 @@
             method="POST"
           >
             <div class="campo">
-              <label> Nombre Completo </label>
+              <label for="nombre">Nombre Completo</label>
 
               <input
+                id="nombre"
                 type="text"
                 name="nombre"
                 placeholder="Tu nombre completo"
                 required
                 maxlength="100"
+                aria-required="true"
               />
             </div>
 
             <div class="campo">
-              <label> Email </label>
+              <label for="email">Email</label>
               <input
+                id="email"
                 type="email"
                 name="email"
                 placeholder="tu email@gmail.com"
                 required
+                aria-required="true"
               />
             </div>
 
             <div class="campo">
-              <label> Teléfono </label>
+              <label for="telefono">Teléfono</label>
 
               <input
+                id="telefono"
                 type="tel"
                 name="telefono"
                 placeholder="Tu número de teléfono"
                 pattern="[0-9+()\-\s]{6,25}"
                 required
+                aria-required="true"
               />
             </div>
 
             <div class="campo">
-              <label> Servicio de Interés </label>
+              <label for="servicio">Servicio de Interés</label>
 
-              <select name="servicio" required>
+              <select
+                id="servicio"
+                name="servicio"
+                required
+                aria-required="true"
+              >
                 <option value="" disabled selected>
                   Selecciona un servicio
                 </option>
@@ -187,15 +242,17 @@
             </div>
 
             <div class="campo">
-              <label> Mensaje </label>
+              <label for="mensaje">Mensaje</label>
 
               <textarea
+                id="mensaje"
                 name="mensaje"
                 rows="5"
                 placeholder="Cuéntanos sobre tu caso..."
                 required
                 minlength="10"
                 maxlength="2000"
+                aria-required="true"
               ></textarea>
             </div>
 
@@ -207,7 +264,12 @@
         <!-- INFO -->
 
         <div class="info-box">
-          <img src="/media/img/contacto.jpeg" alt="Asesoría migratoria" />
+          <img
+            src="/media/img/contacto.jpeg"
+            alt="Asesoría migratoria"
+            loading="lazy"
+            decoding="async"
+          />
 
           <div class="info-contenido">
             <h3>Información de Contacto</h3>

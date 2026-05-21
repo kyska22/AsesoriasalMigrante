@@ -1,0 +1,6 @@
+# robots.txt for Asesorías al Migrante
+# Replace example.com with your real domain before publishing
+User-agent: *
+Disallow:
+
+Sitemap: https://asesoriasal-migrante.vercel.app/sitemap.xml
