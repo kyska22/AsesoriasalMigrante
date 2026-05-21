@@ -129,37 +129,44 @@
         <div class="formulario-box">
           <h3>Solicita una Consulta</h3>
 
-          <form>
+          <form action="https://formspree.io/f/xpqndpeb" method="POST">
             <div class="campo">
               <label> Nombre Completo </label>
 
-              <input type="text" placeholder="Tu nombre completo" />
+              <input
+                type="text"
+                name="nombre"
+                placeholder="Tu nombre completo"
+              />
             </div>
 
             <div class="campo">
               <label> Email </label>
-
-              <input type="email" placeholder="asesoriasalmigrante@gmail.com" />
+              <input
+                type="email"
+                name="email"
+                placeholder="tu email@gmail.com"
+              />
             </div>
 
             <div class="campo">
               <label> Teléfono </label>
 
-              <input type="tel" placeholder="Tu número de teléfono" />
+              <input
+                type="tel"
+                name="telefono"
+                placeholder="Tu número de teléfono"
+              />
             </div>
 
             <div class="campo">
               <label> Servicio de Interés </label>
 
-              <select>
+              <select name="servicio">
                 <option>Selecciona un servicio</option>
-
                 <option>Ciudadanías</option>
-
                 <option>Residencia</option>
-
                 <option>Visas</option>
-
                 <option>Asesorías Legales</option>
               </select>
             </div>
@@ -168,6 +175,7 @@
               <label> Mensaje </label>
 
               <textarea
+                name="mensaje"
                 rows="5"
                 placeholder="Cuéntanos sobre tu caso..."
               ></textarea>
@@ -233,11 +241,8 @@
 
           <ul>
             <li>Ciudadanías y Naturalización</li>
-
             <li>Residencia Permanente</li>
-
             <li>Asilos y Protección</li>
-
             <li>Visas y Permisos</li>
           </ul>
         </div>

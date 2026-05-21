@@ -619,6 +619,12 @@ nav a:hover {
     transition:0.3s;
 }
 
+/* OPCIONES DEL SELECT */
+
+.campo select option{
+    color:black;
+}
+
 /* PLACEHOLDER */
 
 .campo input::placeholder,
