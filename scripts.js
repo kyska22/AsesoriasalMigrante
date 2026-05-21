@@ -1,9 +1,5 @@
 const boton = document.querySelector("button");
 
-boton.addEventListener("click", () => {
-  alert("Gracias por contactarnos");
-});
-
 const menuToggle = document.getElementById("menu-toggle");
 const nav = document.getElementById("nav");
 const navLinks = document.querySelectorAll("#nav a");
@@ -24,6 +20,55 @@ const mensaje = document.getElementById("mensaje-exito");
 formulario.addEventListener("submit", async function (e) {
   e.preventDefault();
 
+  const nombre = formulario.nombre.value.trim();
+  const email = formulario.email.value.trim();
+  const telefono = formulario.telefono.value.trim();
+  const servicio = formulario.servicio.value;
+  const mensajeText = formulario.mensaje.value.trim();
+
+  const showMessage = (text, timeout = 4000) => {
+    mensaje.textContent = text;
+    mensaje.classList.add("activo");
+    setTimeout(() => mensaje.classList.remove("activo"), timeout);
+  };
+
+  const hasInvalidChars = (str) => /[<>"'`]/.test(str);
+  const looksLikeSQLi = (str) =>
+    /\b(1=1|or\s+1=1|union\b|select\b|drop\b|insert\b|update\b|delete\b|--|;)\b/i.test(
+      str,
+    );
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!nombre || !email || !telefono || !servicio || !mensajeText) {
+    showMessage("Por favor completa todos los campos.");
+    return;
+  }
+
+  if (!emailRegex.test(email)) {
+    showMessage("Ingresa un email válido.");
+    return;
+  }
+
+  if (
+    hasInvalidChars(nombre) ||
+    hasInvalidChars(email) ||
+    hasInvalidChars(telefono) ||
+    hasInvalidChars(mensajeText)
+  ) {
+    showMessage("Caracteres no permitidos detectados.");
+    return;
+  }
+
+  if (
+    looksLikeSQLi(nombre) ||
+    looksLikeSQLi(email) ||
+    looksLikeSQLi(telefono) ||
+    looksLikeSQLi(mensajeText)
+  ) {
+    showMessage("Contenido sospechoso detectado.");
+    return;
+  }
+
   const datos = new FormData(formulario);
   try {
     const respuesta = await fetch(formulario.action, {
@@ -35,19 +80,12 @@ formulario.addEventListener("submit", async function (e) {
     });
 
     if (respuesta.ok) {
-      mensaje.textContent = "Consulta enviada correctamente.";
-      mensaje.classList.add("activo");
+      showMessage("Consulta enviada correctamente.");
       formulario.reset();
-      setTimeout(() => {
-        mensaje.classList.remove("activo");
-      }, 4000);
     } else {
-      mensaje.textContent = "Ocurrió un error. Intenta nuevamente.";
-      mensaje.classList.add("activo");
+      showMessage("Ocurrió un error. Intenta nuevamente.");
     }
   } catch (error) {
-    mensaje.textContent = "Error de conexión.";
-
-    mensaje.classList.add("activo");
+    showMessage("Error de conexión.");
   }
 });

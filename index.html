@@ -145,6 +145,8 @@
                 type="text"
                 name="nombre"
                 placeholder="Tu nombre completo"
+                required
+                maxlength="100"
               />
             </div>
 
@@ -154,6 +156,7 @@
                 type="email"
                 name="email"
                 placeholder="tu email@gmail.com"
+                required
               />
             </div>
 
@@ -164,14 +167,18 @@
                 type="tel"
                 name="telefono"
                 placeholder="Tu número de teléfono"
+                pattern="[0-9+()\-\s]{6,25}"
+                required
               />
             </div>
 
             <div class="campo">
               <label> Servicio de Interés </label>
 
-              <select name="servicio">
-                <option>Selecciona un servicio</option>
+              <select name="servicio" required>
+                <option value="" disabled selected>
+                  Selecciona un servicio
+                </option>
                 <option>Ciudadanías</option>
                 <option>Residencia</option>
                 <option>Visas</option>
@@ -186,6 +193,9 @@
                 name="mensaje"
                 rows="5"
                 placeholder="Cuéntanos sobre tu caso..."
+                required
+                minlength="10"
+                maxlength="2000"
               ></textarea>
             </div>
 
