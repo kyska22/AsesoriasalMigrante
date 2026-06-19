@@ -725,12 +725,7 @@ nav a:hover {
 
     .somos-img{
 
-        height:clamp(520px, 72vh, 680px);
-    }
-
-    .somos-img img{
-
-        object-position:center top;
+        height:450px;
     }
 
     .somos-texto{
