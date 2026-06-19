@@ -10,6 +10,8 @@
   --color-accent-soft-blue: #86aeee;
   --color-accent-brand-blue: rgb(143, 168, 238);
   --color-accent-orange: #f59e0b;
+  --color-accent-whatsapp: #25d366;
+  --color-accent-whatsapp-hover: #1ebe5d;
 
   /* Gold colors */
   --color-gold: #d4af37;
@@ -1172,11 +1174,11 @@ nav a:hover {
 
 .consulta-grid{
 
-    max-width:1300px;
+    max-width:1050px;
     margin:auto;
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:50px;
+    gap:35px;
     align-items:stretch;
 }
 
@@ -1199,7 +1201,55 @@ nav a:hover {
 
     color:var(--color-text-white);
     font-size:38px;
-    margin-bottom:40px;
+    margin-bottom:30px;
+}
+
+/* PROGRESO */
+
+.form-progress{
+
+    width:100%;
+    height:10px;
+    background:var(--color-bg-card-light-hover);
+    border:1px solid var(--glass-border-light);
+    border-radius:999px;
+    overflow:hidden;
+    margin-bottom:18px;
+}
+
+.form-progress-fill{
+
+    display:block;
+    width:33.333%;
+    height:100%;
+    background:linear-gradient(
+        90deg,
+        var(--color-accent-soft-blue),
+        var(--color-gold)
+    );
+    border-radius:999px;
+    transition:0.35s;
+}
+
+.form-step-counter{
+
+    color:var(--color-gold);
+    font-size:15px;
+    font-weight:bold;
+    margin-bottom:30px;
+    text-align:center;
+}
+
+/* PASOS */
+
+.form-step{
+
+    display:none;
+}
+
+.form-step.activo{
+
+    display:block;
 }
 
 /* CAMPOS */
@@ -1265,11 +1315,10 @@ nav a:hover {
     resize:none;
 }
 
-/* BOTON */
+/* BOTONES */
 
 .formulario-box button{
 
-    width:100%;
     padding:18px;
     border:none;
     border-radius:14px;
@@ -1281,12 +1330,63 @@ nav a:hover {
     transition:0.3s;
 }
 
+.form-actions{
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+}
+
+.form-actions.inicio-activo{
+
+    grid-template-columns:1fr;
+}
+
+.form-actions button{
+
+    width:100%;
+}
+
+.form-actions #btn-enviar{
+
+    display:none;
+}
+
+.form-actions.enviar-activo{
+
+    grid-template-columns:1fr 1fr;
+}
+
+.form-actions.enviar-activo #btn-siguiente{
+
+    display:none;
+}
+
+.form-actions.enviar-activo #btn-enviar{
+
+    display:block;
+}
+
+.btn-form-secondary{
+
+    background:var(--color-bg-card-light-hover);
+    color:var(--color-text-primary);
+    border:1px solid var(--glass-border-light);
+}
+
 /* HOVER BOTON */
 
 .formulario-box button:hover{
 
     background:var(--color-text-white);
     transform:translateY(-2px);
+}
+
+.formulario-box button:disabled{
+
+    cursor:not-allowed;
+    opacity:0.75;
+    transform:none;
 }
 
 /* =========================
@@ -1299,6 +1399,7 @@ nav a:hover {
     overflow:hidden;
     border-radius:30px;
     min-height:750px;
+    height:100%;
 }
 
 /* IMAGEN */
@@ -1309,6 +1410,8 @@ nav a:hover {
     height:100%;
     object-fit:cover;
     display:block;
+    position:absolute;
+    inset:0;
 }
 
 /* OVERLAY */
@@ -1333,11 +1436,15 @@ nav a:hover {
 .info-contenido{
 
     position:absolute;
-    bottom:0;
+    top:0;
     left:0;
     width:100%;
+    height:100%;
     padding:50px;
     z-index:2;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
 }
 
 /* TITULO */
@@ -1392,6 +1499,16 @@ nav a:hover {
     transition:0.4s;
 }
 
+#mensaje-exito.exito{
+
+    color:var(--color-gold);
+}
+
+#mensaje-exito.error{
+
+    color:var(--color-text-primary);
+}
+
 /* ACTIVO */
 
 #mensaje-exito.activo{
@@ -1422,6 +1539,12 @@ nav a:hover {
     .formulario-box{
 
         padding:35px;
+    }
+
+    .form-actions,
+    .form-actions.enviar-activo{
+
+        grid-template-columns:1fr;
     }
 
     .info-box{
@@ -1570,6 +1693,61 @@ nav a:hover {
     .footer-col h4{
 
         font-size:22px;
+    }
+
+}
+
+/* =========================
+   WHATSAPP FLOAT
+========================= */
+
+.whatsapp-float{
+
+    position:fixed;
+    right:24px;
+    bottom:24px;
+    z-index:1200;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:58px;
+    height:58px;
+    padding:0;
+    background:var(--color-accent-whatsapp);
+    color:var(--color-text-white);
+    border-radius:50%;
+    box-shadow:0 10px 30px var(--glass-shadow-strong-compact);
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.whatsapp-float svg{
+
+    width:30px;
+    height:30px;
+    fill:currentColor;
+}
+
+.whatsapp-float:hover{
+
+    background:var(--color-accent-whatsapp-hover);
+    transform:translateY(-3px);
+}
+
+@media(max-width:768px){
+
+    .whatsapp-float{
+
+        right:18px;
+        bottom:18px;
+        width:54px;
+        height:54px;
+    }
+
+    .whatsapp-float svg{
+
+        width:28px;
+        height:28px;
     }
 
 }
