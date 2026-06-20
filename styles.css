@@ -583,12 +583,14 @@ nav a:hover {
   position: relative;
   z-index: 2;
   color: var(--color-text-hero);
-  padding: 20px;
-  max-width:900px;
+  width: calc(100% - 80px);
+  max-width: 1200px;
+  padding: 20px 0;
+  text-align: left;
 }
 
 .contenido-hero h1 {
-    font-size:72px;
+    font-size:56px;
     line-height:1.1;
     margin-bottom:25px;
     font-weight:700;
@@ -619,8 +621,13 @@ nav a:hover {
 }
 
 @media (max-width: 768px) {
+  .contenido-hero {
+    width: calc(100% - 40px);
+    text-align: center;
+  }
+
   .contenido-hero h1 {
-    font-size: 48px;
+    font-size: 36px;
   }
 }
 
@@ -1071,14 +1078,15 @@ nav a:hover {
 
 .solucion-card {
   background: var(--color-bg-card-light);
-  border: 1px solid var(--glass-border-light);
+  border: 2px solid var(--glass-border-light);
   border-radius: 28px;
   padding: 50px;
   box-shadow: 0 14px 35px var(--glass-shadow-soft);
+  transition: border-color 0.3s ease;
 }
 
-.solucion-card.destacada {
-  border: 2px solid var(--color-gold);
+.solucion-card:hover {
+  border-color: var(--color-gold);
 }
 
 .solucion-card h3 {
