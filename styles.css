@@ -1056,6 +1056,25 @@ nav a:hover {
   line-height: 1.8;
 }
 
+.historia-firma {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--glass-border-light);
+}
+
+.historia-firma strong {
+  color: var(--color-gold);
+  font-size: 18px;
+}
+
+.historia-firma span {
+  color: var(--color-text-muted);
+  font-size: 14px;
+}
+
 .historia-nav {
   width: 52px;
   height: 52px;
