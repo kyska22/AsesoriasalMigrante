@@ -170,3 +170,88 @@ formulario.addEventListener("submit", async function (e) {
 
   actualizarPaso();
 }
+
+const historiasCarousel = document.querySelector(".historias-carousel");
+
+if (historiasCarousel) {
+  const slides = historiasCarousel.querySelectorAll(".historia-slide");
+  const dots = document.querySelectorAll(".historia-dots .dot");
+  const prevBtn = historiasCarousel.querySelector(".historia-nav.prev");
+  const nextBtn = historiasCarousel.querySelector(".historia-nav.next");
+  const autoPlayDelay = 20000;
+  let currentIndex = 0;
+  let autoPlayInterval;
+
+  const showSlide = (index) => {
+    currentIndex = (index + slides.length) % slides.length;
+
+    slides.forEach((slide, slideIndex) => {
+      slide.classList.toggle("active", slideIndex === currentIndex);
+    });
+
+    dots.forEach((dot, dotIndex) => {
+      const isActive = dotIndex === currentIndex;
+      dot.classList.toggle("active", isActive);
+      dot.setAttribute("aria-current", isActive ? "true" : "false");
+    });
+  };
+
+  const nextSlide = () => showSlide(currentIndex + 1);
+  const prevSlide = () => showSlide(currentIndex - 1);
+
+  const startAutoPlay = () => {
+    clearInterval(autoPlayInterval);
+    autoPlayInterval = setInterval(nextSlide, autoPlayDelay);
+  };
+
+  nextBtn.addEventListener("click", () => {
+    nextSlide();
+    startAutoPlay();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    prevSlide();
+    startAutoPlay();
+  });
+
+  dots.forEach((dot, dotIndex) => {
+    dot.addEventListener("click", () => {
+      showSlide(dotIndex);
+      startAutoPlay();
+    });
+  });
+
+  startAutoPlay();
+}
+
+const metodoSection = document.querySelector("#metodo");
+
+if (metodoSection) {
+  const timelineItems = metodoSection.querySelectorAll(".timeline-item");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if ("IntersectionObserver" in window && !reducedMotion) {
+    metodoSection.classList.add("metodo-reveal-ready");
+
+    timelineItems.forEach((item, index) => {
+      item.style.setProperty("--reveal-delay", `${index * 100}ms`);
+    });
+
+    const metodoObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.18,
+        rootMargin: "0px 0px -8% 0px",
+      }
+    );
+
+    timelineItems.forEach((item) => metodoObserver.observe(item));
+  }
+}
