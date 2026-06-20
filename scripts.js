@@ -13,16 +13,18 @@ navLinks.forEach((link) => {
 });
 
 const formulario = document.getElementById("formulario-contacto");
-const mensaje = document.getElementById("mensaje-exito");
-const pasos = document.querySelectorAll(".form-step");
-const contadorPaso = document.getElementById("form-step-counter");
-const progreso = document.querySelector(".form-progress-fill");
-const acciones = document.querySelector(".form-actions");
-const btnAtras = document.getElementById("btn-atras");
-const btnSiguiente = document.getElementById("btn-siguiente");
-const btnEnviar = document.getElementById("btn-enviar");
-const totalPasos = pasos.length;
-let pasoActual = 0;
+
+if (formulario) {
+  const mensaje = document.getElementById("mensaje-exito");
+  const pasos = document.querySelectorAll(".form-step");
+  const contadorPaso = document.getElementById("form-step-counter");
+  const progreso = document.querySelector(".form-progress-fill");
+  const acciones = document.querySelector(".form-actions");
+  const btnAtras = document.getElementById("btn-atras");
+  const btnSiguiente = document.getElementById("btn-siguiente");
+  const btnEnviar = document.getElementById("btn-enviar");
+  const totalPasos = pasos.length;
+  let pasoActual = 0;
 
 const showMessage = (text, type = "success", timeout = 4000) => {
   mensaje.textContent = text;
@@ -166,4 +168,5 @@ formulario.addEventListener("submit", async function (e) {
   }
 });
 
-actualizarPaso();
+  actualizarPaso();
+}

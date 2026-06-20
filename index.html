@@ -65,7 +65,7 @@
           <a href="#">Inicio</a>
           <a href="#somosasesoriasalmigrante">Quiénes somos</a>
           <a href="#nuestros-servicios">Servicios</a>
-          <a href="#consulta">Contacto</a>
+          <a href="#soluciones">Contacto</a>
         </nav>
       </div>
     </header>
@@ -75,7 +75,7 @@
       <div class="overlay"></div>
       <div class="contenido-hero">
         <h1>Asesorías al Migrante</h1>
-        <a href="#consulta" class="btn-hero">Contáctanos</a>
+        <a href="#soluciones" class="btn-hero">Contáctanos</a>
       </div>
     </section>
 
@@ -228,7 +228,7 @@
               Brindamos un servicio profesional enfocado en brindar orientación
               legal sobre con el derecho migratorio, penal y civil.
             </p>
-            <a href="#consulta" class="btn">Información</a>
+            <a href="#soluciones" class="btn">Información</a>
           </div>
 
           <div class="carta carta2">
@@ -239,7 +239,7 @@
               adquirir la ciudadania por residencia. Ayudamos tambien adquirir
               la ciudadania por matrimonio, descendencia y otros medios legales.
             </p>
-            <a href="#consulta" class="btn">Información</a>
+            <a href="#soluciones" class="btn">Información</a>
           </div>
 
           <div class="carta carta3">
@@ -250,7 +250,7 @@
               necesitas según tu requerimiento, te preparamos de manera de que
               tu visa sea aprobada.
             </p>
-            <a href="#consulta" class="btn">Información</a>
+            <a href="#soluciones" class="btn">Información</a>
           </div>
 
           <div class="carta carta4">
@@ -260,7 +260,7 @@
               viajes, poderes, y redaccion de documentos. Escribenos para
               conocer más.
             </p>
-            <a href="#consulta" class="btn">Información</a>
+            <a href="#soluciones" class="btn">Información</a>
           </div>
         </div>
       </div>
@@ -318,11 +318,14 @@
         <div class="soluciones-header">
           <span>Soluciones disponibles</span>
           <h2>Elige cómo quieres comenzar</h2>
-          <p>Accede a una guía práctica o agenda una asesoría personalizada.</p>
+          <p>
+            Puedes acceder a una guía práctica, contratar una asesoría
+            personalizada o escribirnos para recibir orientación.
+          </p>
         </div>
 
-        <div class="soluciones-cards">
-          <div class="solucion-card">
+        <div class="soluciones-grid">
+          <article class="solucion-card">
             <h3>Guía Digital Migratoria</h3>
             <p>
               Un material práctico para organizar documentos, evitar errores
@@ -335,7 +338,7 @@
             </ul>
             <!-- HOTMART_LINK_AQUI debe reemplazarse por el link real de Hotmart. -->
             <a
-              href="HOTMART_LINK_AQUI"
+              href="https://hotmart.com/es/marketplace/productos/mudarse-a-otro-pais-la-verdadera-guia-de-supervivencia/D106371614L"
               target="_blank"
               rel="noopener noreferrer"
               class="btn-solucion"
@@ -345,39 +348,60 @@
               La gu&iacute;a se entrega desde Hotmart despu&eacute;s de la
               compra.
             </p>
-          </div>
+          </article>
 
-          <div class="solucion-card destacada">
+          <article class="solucion-card destacada">
+            <span class="solucion-tag">Más solicitado</span>
             <h3>Asesoría Personalizada</h3>
             <p>
               Una sesión individual para revisar tu caso, definir una estrategia
               y conocer los próximos pasos legales.
             </p>
             <ul>
-              <li>Diagnóstico migratorio</li>
-              <li>Ruta de acción</li>
-              <li>Orientación profesional</li>
+              <li>Pago seguro por PayPal</li>
+              <li>Formulario diagnóstico post-pago</li>
+              <li>Agenda coordinada por Daniela</li>
             </ul>
             <!-- PAYPAL_LINK_AQUI debe reemplazarse por el link real de PayPal. -->
+            <!-- Configurar PayPal para redirigir a /gracias.html después del pago. -->
             <a
               href="PAYPAL_LINK_AQUI"
               target="_blank"
               rel="noopener noreferrer"
               class="btn-solucion"
-              >Pagar asesor&iacute;a</a
+              >Contratar asesor&iacute;a</a
             >
             <p class="nota-pago">
-              Despu&eacute;s del pago recibir&aacute;s el enlace privado para
-              agendar tu asesor&iacute;a.
+              Despu&eacute;s del pago completar&aacute;s tus datos y
+              recibir&aacute;s el enlace para coordinar tu asesor&iacute;a.
             </p>
-            <!-- CAL.COM se enviará manualmente después de confirmar el pago. -->
-          </div>
+          </article>
+
+          <article class="solucion-card">
+            <h3>Información de Contacto</h3>
+            <p>
+              Si tienes dudas antes de comenzar, puedes comunicarte directamente
+              con el equipo.
+            </p>
+            <ul class="contacto-lista">
+              <li><strong>Teléfono:</strong> +54 223 5173127</li>
+              <li><strong>Email:</strong> asesoriasalmigrante@gmail.com</li>
+              <li><strong>Ubicación:</strong> Mar del Plata - Argentina</li>
+            </ul>
+            <a href="mailto:asesoriasalmigrante@gmail.com" class="btn-solucion"
+              >Escribir por email</a
+            >
+            <p class="nota-pago">
+              Para asesor&iacute;as pagas, primero realiza el pago y luego
+              recibir&aacute;s los pasos siguientes.
+            </p>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- CONSULTA -->
-    <section id="consulta">
+    <!-- Formulario Formspree reservado para una futura página /gracias.html. -->
+    <template id="formulario-post-pago-template">
       <!-- Introduccion, textos arriba -->
 
       <div class="consulta-header">
@@ -579,7 +603,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </template>
 
     <!-- Footer -->
     <footer id="footer">

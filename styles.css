@@ -586,7 +586,7 @@ nav a:hover {
   width: calc(100% - 80px);
   max-width: 1200px;
   padding: 20px 0;
-  text-align: left;
+  text-align: center;
 }
 
 .contenido-hero h1 {
@@ -1070,41 +1070,93 @@ nav a:hover {
   line-height: 1.8;
 }
 
-.soluciones-cards {
+.soluciones-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
 }
 
 .solucion-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   background: var(--color-bg-card-light);
-  border: 2px solid var(--glass-border-light);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border-light);
   border-radius: 28px;
-  padding: 50px;
+  padding: 42px 34px;
   box-shadow: 0 14px 35px var(--glass-shadow-soft);
-  transition: border-color 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.solucion-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--color-gold);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
 }
 
 .solucion-card:hover {
+  background: var(--color-bg-card-light-hover);
   border-color: var(--color-gold);
+  transform: translateY(-8px);
+}
+
+.solucion-card:hover::before {
+  transform: scaleX(1);
+}
+
+.solucion-card.destacada {
+  border-color: var(--color-gold);
+}
+
+.solucion-tag {
+  align-self: flex-start;
+  margin-bottom: 18px;
+  padding: 7px 12px;
+  border: 1px solid var(--color-gold);
+  border-radius: 999px;
+  color: var(--color-gold);
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .solucion-card h3 {
   color: var(--color-accent-soft-blue);
-  font-size: 34px;
-  margin-bottom: 25px;
+  font-size: 30px;
+  margin-bottom: 22px;
 }
 
-.solucion-card p,
+.solucion-card > p:not(.nota-pago),
 .solucion-card li {
   color: var(--color-text-muted);
-  font-size: 18px;
-  line-height: 1.8;
+  font-size: 17px;
+  line-height: 1.7;
 }
 
 .solucion-card ul {
-  margin: 30px 0;
+  margin: 28px 0;
   padding-left: 20px;
+}
+
+.solucion-card li + li {
+  margin-top: 8px;
+}
+
+.solucion-card li strong {
+  color: var(--color-gold);
 }
 
 .btn-solucion {
@@ -1117,6 +1169,7 @@ nav a:hover {
   border-radius: 14px;
   text-decoration: none;
   font-weight: bold;
+  margin-top: auto;
   transition: 0.3s;
 }
 
@@ -1125,7 +1178,7 @@ nav a:hover {
   transform: translateY(-2px);
 }
 
-.solucion-card .nota-pago {
+.nota-pago {
   color: var(--color-text-muted);
   font-size: 14px;
   line-height: 1.6;
@@ -1133,13 +1186,27 @@ nav a:hover {
   text-align: center;
 }
 
-@media (max-width: 800px) {
-  .soluciones-cards {
+@media (max-width: 1050px) {
+  .soluciones-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  #soluciones {
+    padding: 90px 20px;
+  }
+
+  .soluciones-grid {
     grid-template-columns: 1fr;
   }
 
   .soluciones-header h2 {
     font-size: 38px;
+  }
+
+  .solucion-card {
+    padding: 36px 26px;
   }
 }
 
@@ -1603,7 +1670,9 @@ nav a:hover {
 
 #footer{
 
-    background:var(--color-primary-navy);
+    background:var(--color-primary-deep);
+
+    border-top:1px solid var(--glass-border-light);
 
     padding-top:90px;
 
